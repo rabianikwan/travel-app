@@ -2,26 +2,220 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+    display: none;
+}
+
+/* Scroll bar nav */
+/* ::-webkit-scrollbar {
+    width: auto;
+} */
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+    -webkit-box-shadow: auto;
+    -webkit-border-radius: auto;
+    border-radius: auto;
+    background: auto;
+} */
+
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: auto;
+    border-radius: auto;
+    background: auto;
+    -webkit-box-shadow: auto;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: auto;
+} */
+
+/* Date Range Picker start */
+.react-daterange-picker__calendar,
+.react-calendar {
+    border-radius: 30px;
+    width: max-content;
+}
+
+.react-daterange-picker__calendar,
+.react-calendar {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    border: none;
+}
+
+.react-calendar--doubleView {
+    width: 635px;
+}
+
+.react-calendar__navigation button.react-calendar__navigation__next-button {
+    display: flex;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-top-right-radius: 16px;
+}
+
+.react-calendar__navigation button.react-calendar__navigation__next-button:focus {
+    background-color: white;
+}
+.react-calendar__navigation button.react-calendar__navigation__next-button:hover {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__navigation button.react-calendar__navigation__prev-button {
+    display: flex;
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-top-left-radius: 16px;
+}
+.react-calendar__navigation button.react-calendar__navigation__prev-button:focus {
+    background-color: white;
+}
+.react-calendar__navigation button.react-calendar__navigation__prev-button:hover {
+    background-color: #f0f0f0;
+}
+
+.react-calendar__navigation {
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* .calendar,
+.calendar__range {
+    margin-top: 40px;
+} */
+
+.react-daterange-picker.react-daterange-picker--open.react-daterange-picker--enabled.calendar__range {
+    top: 74%;
+    transform: translateY(-74%);
+
+    right: 74%;
+    transform: translateX(-74%);
+    position: absolute;
+}
+
+.react-calendar {
+    font-family: var(--font-poppins);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    font-family: var(--font-inter);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #8a8a8a;
+    line-height: 150%;
+}
+
+.react-calendar__navigation__label__divider {
+    display: none;
+}
+
+.react-calendar__navigation__label {
+    display: flex;
+    justify-content: center;
+    gap: 30%;
+    align-items: center;
+    font-family: var(--font-poppins);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.react-calendar__viewContainer {
+    padding: 0 10px;
+}
+
+.react-calendar__tile {
+    margin: 0;
+    padding: 0;
+}
+
+.react-calendar__tile--active.react-calendar__tile--rangeStart {
+    background: #002714;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+
+    color: white;
+}
+
+.react-calendar__tile--active.react-calendar__tile--rangeEnd {
+    background: #002714;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    color: white;
+}
+
+.react-calendar__tile--active {
+    background: #00cf6c;
+    color: black;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: black;
+}
+
+abbr[title] {
+    border-bottom: none !important;
+    cursor: inherit !important;
+    text-decoration: none !important;
+}
+
+.react-calendar__tile abbr {
+    padding: 15px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-calendar__tile--hasActive {
+    background: #002714;
+    border-radius: 8px;
+    color: white;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+    background: #002714;
+    color: white;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+    background-color: #002714;
+}
+
+.react-daterange-picker__wrapper {
+    display: none;
+}
+
+/* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .react-daterange-picker.react-daterange-picker--open.react-daterange-picker--enabled.calendar__range {
+        top: 74%;
+        transform: translateY(-74%);
+
+        right: 90%;
+        transform: translateX(-90%);
+        position: absolute;
+    }
+}
+
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
 }
